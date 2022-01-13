@@ -1,0 +1,10 @@
+.btn-cart i {
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.btn-cart{
+    border: 0;
+    background: none;
+    padding-left: 0;
+}

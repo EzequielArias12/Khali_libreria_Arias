@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import CartWidget from '../CartWidget/index';
 
 const Navbar = () => {
     return (
@@ -14,7 +15,7 @@ const Navbar = () => {
 
             <div className="nav-admin col-3">
                 <p>Iniciar sesion<br/>-------------------<br/> Crear cuenta</p>
-                <button className="btn-cart"><i className="fas fa-shopping-cart"></i></button>
+                <CartWidget/>
             </div>
         </div>
         
