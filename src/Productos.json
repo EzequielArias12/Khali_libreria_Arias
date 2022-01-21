@@ -1,0 +1,37 @@
+[
+    {
+      "id": 1,
+      "name": "Remera Fruti Lover",
+      "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "precio": 750,
+      "img": "./sharpie.jpeg"
+    },
+    {
+      "id": 2,
+      "name": "Musculosa Pink Hearts",
+      "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "precio": 600,
+      "img": "./sharpie.jpeg"
+    },
+    {
+      "id": 3,
+      "name": "Calza Red Hearts",
+      "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "precio": 830,
+      "img": "./sharpie.jpeg"
+    },
+    {
+      "id": 4,
+      "name": "Remera Be Happy",
+      "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "precio": 750,
+      "img": "./sharpie.jpeg"
+    },
+    {
+      "id": 6,
+      "name": "Remera Skull Beach",
+      "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "precio": 700,
+      "img": "./sharpie.jpeg"
+    }
+]

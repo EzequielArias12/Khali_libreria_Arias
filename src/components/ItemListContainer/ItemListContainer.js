@@ -1,24 +1,39 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React,{useState,useEffect} from 'react';
 import './ItemListContainer.css';
-import {Card} from 'react-bootstrap';
 import ItemCount from '../ItemCount/index';
+import { ItemList } from "../ItemList/ItemList";
+import Productos from '../../Productos.json';
 
-const ItemListContainer = () => {
-    return (
-        <>
-            <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src=".js/100px180" />
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
-    <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </Card.Text>
-    <ItemCount/>
-  </Card.Body>
-</Card>
-        </>
-    )
-}
+
+ const ItemListContainer = ({ title }) => {
+  const [productos, setProductos] = useState([]);
+
+  const getProductos = (data) =>
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (data) {
+          resolve(data);
+        } else {
+          reject("No se encontró ningun elemento");
+        }
+      }, 2000);
+    });
+
+  useEffect(() => {
+    getProductos(Productos)
+      .then((result) => setProductos(result))
+      .catch((err) => console.log(err));
+  }, []);
+
+  return (
+    <div className="itemListContainer">
+      <div className="listaProductos">
+        <ItemList items={productos} />
+      </div>
+      <ItemCount/>
+    </div>
+  );
+};
 
 export default ItemListContainer;
