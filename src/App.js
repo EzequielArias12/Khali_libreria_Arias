@@ -1,20 +1,16 @@
 import Navbar from './components/NavBar/index';
-import ItemListContainer from './components/ItemListContainer/index';
+import {ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer'
 
 
 function App() {
   return (
    <>
-
-    <Navbar/>
    <div className="mt-5 ml-5">
-     
-   <ItemListContainer/>
+   <Navbar/>
    </div>
-  
-   
-  
-
+   <main>
+     <ItemDetailContainer/>
+   </main>
    </>
   );
 }
