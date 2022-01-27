@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <header>
         <div className='navbar-top row'>
-            <p className='logo col-3'>Khali<br/>Libreria</p>
+            <Link className='logo col-3' to="/">Khali<br/>Libreria</Link>
 
             <form className="col-6">
                 <input className='input-search' type="text" placeholder="  ¿Que estas buscando?"/>
