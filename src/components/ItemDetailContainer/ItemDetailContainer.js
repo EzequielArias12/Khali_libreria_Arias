@@ -1,9 +1,13 @@
 import Productos from "../../../src/Productos.json";
 import { useEffect, useState } from "react";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
+import { useParams } from "react-router";
+import './ItemDetailContainer.css';
 
 export function ItemDetailContainer() {
   const [itemDetail, setItemDetail] = useState();
+
+  const { itemId } = useParams();
 
   const getItemDetail = (data) =>
     new Promise((resolve, reject) => {
@@ -17,16 +21,22 @@ export function ItemDetailContainer() {
     });
 
   useEffect(() => {
-    getItemDetail(Productos[0])
-      .then((result) => setItemDetail(result))
+    getItemDetail(Productos)
+      .then((result) => {
+        setItemDetail(result.filter((details) => details.id === itemId));
+      })
       .catch((err) => console.log(err));
-  }, []);
+  }, [itemId]);
 
-  console.log(itemDetail);
+  console.log(itemDetail, "este es ItemDetail");
 
   return (
     <div className="itemDetailContainer">
-      {itemDetail ? <ItemDetail details={itemDetail} /> : "cargando..."}
+      {itemDetail
+        ? itemDetail.map((itemDetail) => (
+            <ItemDetail key={itemDetail.id} details={itemDetail} />
+          ))
+        : "cargando..."}
     </div>
   );
 }

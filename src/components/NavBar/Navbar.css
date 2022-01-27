@@ -27,7 +27,7 @@
 }
 
 
-li,a {
+.LinkA {
     
     text-decoration: none !important;
     color: #FFFFFF !important;

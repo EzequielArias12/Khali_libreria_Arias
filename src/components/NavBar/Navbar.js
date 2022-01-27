@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import CartWidget from '../CartWidget/index';
+import {Link} from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -21,14 +22,11 @@ const Navbar = () => {
         
         <nav className="navbar-bottom">
             <ul className="nav-links">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Artistica</a></li>
-                <li><a href="#">Comercial</a></li>
-                <li><a href="#">Escolar</a></li>
-                <li><a href="#">Papeleria</a></li>
-                <li><a href="#">Kits</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><Link className='LinkA' to='/categoria/Fibrones'>Fibrones</Link></li>
+                <li><Link className='LinkA' to='/categoria/gomasDeBorrar'>Gomas</Link></li>
+                <li><Link className='LinkA' to='/'>Catalogo</Link></li>
+                <li><Link className='LinkA' to='/categoria/Lapiceria'>Lapiceria</Link></li>
+                <li><Link className='LinkA' to='/categoria/Kits'>Kits</Link></li>
             </ul>
         </nav>
        

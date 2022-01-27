@@ -1,37 +1,42 @@
 [
     {
-      "id": 1,
+      "id":"1",
       "name": "Sharpie",
       "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
       "precio": 750,
-      "img": "/image/sharpie.jpeg"
+      "img": "/image/1x1 Rosa con fondo Violeta.jpg",
+      "categoria" : "Fibrones"
     },
     {
-      "id": 2,
+      "id":"2",
       "name": "Sharpies",
       "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
       "precio": 600,
-      "img": "/image/sharpie.jpeg"
+      "img": "/image/1x1 Rosa con fondo Violeta.jpg",
+      "categoria" : "Fibrones"
     },
     {
-      "id": 3,
-      "name": "sharpies",
+      "id":"3",
+      "name": "Gomas de borrar",
       "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
       "precio": 830,
-      "img": "/image/sharpie.jpeg"
+      "img": "/image/1x1 Gomas de borrar.jpg",
+      "categoria" : "gomasDeBorrar"
     },
     {
-      "id": 4,
-      "name": "sharpies",
+      "id":"4",
+      "name": "Kits",
       "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
       "precio": 750,
-      "img": "/image/sharpie.jpeg"
+      "img": "/image/Kit Filgo.jpg",
+      "categoria" : "Kits"
     },
     {
-      "id": 6,
-      "name": "sharpies",
+      "id":"6",
+      "name": "Lapicera",
       "descripcion": "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
       "precio": 700,
-      "img": "/image/sharpie.jpeg"
+      "img": "/image/1x1 Bic Lapiceras colores.jpg",
+      "categoria":"Lapiceria"
     }
 ]
