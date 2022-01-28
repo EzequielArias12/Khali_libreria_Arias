@@ -29,7 +29,7 @@ const Navbar = () => {
                 <li><Link className='LinkA' to='/categoria/Kits'>Kits</Link></li>
             </ul>
         </nav>
-       
+
     </header>
     )
 }

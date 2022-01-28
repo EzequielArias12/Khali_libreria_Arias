@@ -2,16 +2,16 @@ import ItemCount from '../ItemCount/ItemCount';
 
 export function ItemDetail({ details }) {
   return (
-    <div className="item-detail">
-      <div className="item-detail-img">
-        <img className="detail-img" src={details.img} alt="" />
-      </div>
-      <div className="detalle">
-        <h1>{details.name}</h1>
-        <p className="descripcion">{details.descripcion}</p>
-        <p>${details.precio}</p>
-        <ItemCount />
-      </div>
-    </div>
+    <>
+    <div className="card" >
+  <img src={details.img} className="card-img-top" alt="..."/>
+  <div className="card-body">
+    <h5 className="card-title">{details.name}</h5>
+    <p className="card-text">{details.descripcion}</p>
+    <p>${details.precio}</p>
+    <ItemCount />
+  </div>
+</div>
+    </>
   );
 }
