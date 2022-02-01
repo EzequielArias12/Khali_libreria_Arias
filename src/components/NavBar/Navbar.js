@@ -2,6 +2,7 @@
 import React from 'react';
 import CartWidget from '../CartWidget/index';
 import {Link} from 'react-router-dom';
+import {NavbarContainer,IconLogoMobile, NavBarWrapper,MenuItemLink,Menu,MenuItem} from './NavBar_elements';
 
 const Navbar = () => {
     return (
@@ -19,16 +20,32 @@ const Navbar = () => {
                 <CartWidget/>
             </div>
         </div>
-        
-        <nav className="navbar-bottom">
-            <ul className="nav-links">
-                <li><Link className='LinkA' to='/categoria/Fibrones'>Fibrones</Link></li>
-                <li><Link className='LinkA' to='/categoria/gomasDeBorrar'>Gomas</Link></li>
-                <li><Link className='LinkA' to='/'>Catalogo</Link></li>
-                <li><Link className='LinkA' to='/categoria/Lapiceria'>Lapiceria</Link></li>
-                <li><Link className='LinkA' to='/categoria/Kits'>Kits</Link></li>
-            </ul>
-        </nav>
+        <NavbarContainer>
+            <NavBarWrapper>
+                <IconLogoMobile>
+                    
+                </IconLogoMobile>
+                <Menu>
+                    <MenuItem>
+                    <MenuItemLink>Fibrones</MenuItemLink>
+                    </MenuItem>
+                    <MenuItem>
+                        <MenuItemLink>Gomas</MenuItemLink>
+                    </MenuItem>
+                   <MenuItem>
+                   <MenuItemLink>Catalogo</MenuItemLink>
+                   </MenuItem>
+                    <MenuItem>
+                    <MenuItemLink>Lapicera</MenuItemLink>
+                    </MenuItem>
+                    <MenuItem>
+                    <MenuItemLink>Kits</MenuItemLink>
+                    </MenuItem>
+                    
+                </Menu>
+            </NavBarWrapper>
+        </NavbarContainer>
+       
 
     </header>
     )
