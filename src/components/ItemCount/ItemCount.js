@@ -1,13 +1,34 @@
-import useContador from '../../hooks/useContador';
+
+import {useState} from 'react'
 
 
 
-function ItemCount() {
+function ItemCount({inStock,onAdd}) {
 
-  const {state : count,decrementar,incrementar,reset} =  useContador(1)
+    const [count, setCount] = useState(1);
+    const [stock, setStock] = useState(inStock);
 
-  
+    const incrementar = () => {
+        if(stock > 0){
+             setCount(count + 1);
+             setStock(stock - 1);
+        }else{
+            setStock(0);
+        }
+    };  
+
+    const decrementar = () =>{
+        if (count === 0) {
+            setCount(0);
+          } else {
+            setCount(count - 1);
+            setStock(stock + 1);
+          }
+    };    
+        
+
   return (
+    
     <div >
       <h4>Count{count}</h4>
 
@@ -19,10 +40,12 @@ function ItemCount() {
       </button>
 
       <button 
-      onClick={reset}
+      onClick={() => {
+        onAdd(count);
+      }}
       className='btn btn-danger mx-2'
       >
-        reset
+        agregar al carrito
       </button>
 
       <button 
