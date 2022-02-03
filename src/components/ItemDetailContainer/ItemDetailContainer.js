@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import './ItemDetailContainer.css';
 
 export function ItemDetailContainer() {
+
   const [itemDetail, setItemDetail] = useState();
 
   const { itemId } = useParams();
@@ -23,7 +24,7 @@ export function ItemDetailContainer() {
   useEffect(() => {
     getItemDetail(Productos)
       .then((result) => {
-        setItemDetail(result.filter((details) => details.id === itemId));
+        setItemDetail(result.find((details) => details.id === itemId));
       })
       .catch((err) => console.log(err));
   }, [itemId]);
@@ -32,11 +33,7 @@ export function ItemDetailContainer() {
 
   return (
     <div className="itemDetailContainer">
-      {itemDetail
-        ? itemDetail.map((itemDetail) => (
-            <ItemDetail key={itemDetail.id} details={itemDetail} />
-          ))
-        : "cargando..."}
+        {itemDetail ? <ItemDetail item={itemDetail} /> : "cargando..."}
     </div>
   );
 }

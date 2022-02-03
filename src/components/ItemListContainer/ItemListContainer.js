@@ -29,7 +29,7 @@ export const ItemListContainer = ({ title }) => {
             )
           : setProductos(Productos);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
   }, [categoriaId]);
 
   return (
