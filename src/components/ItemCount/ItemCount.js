@@ -1,28 +1,28 @@
-
-import {useState} from 'react'
-
+import { useState} from 'react';
+import { Button } from 'react-bootstrap';
 
 
 function ItemCount({inStock,onAdd}) {
 
-    const [count, setCount] = useState(1);
-    const [stock, setStock] = useState(inStock);
+  const [stock, setStock] = useState(inStock);
 
-    const incrementar = () => {
+    const [count, setCount] = useState(1);
+   
+    const incrementar = (factor = 1) => {
         if(stock > 0){
-             setCount(count + 1);
-             setStock(stock - 1);
+             setCount(count + factor);
+             setStock(stock - factor);
         }else{
             setStock(0);
         }
     };  
 
-    const decrementar = () =>{
+    const decrementar = (factor = 1) =>{
         if (count === 0) {
             setCount(0);
           } else {
-            setCount(count - 1);
-            setStock(stock + 1);
+            setCount(count - factor);
+            setStock(stock + factor);
           }
     };    
         
@@ -32,28 +32,28 @@ function ItemCount({inStock,onAdd}) {
     <div >
       <h4>Count{count}</h4>
 
-      <button 
+      <Button 
       onClick={ () => incrementar()}
-      className='btn btn-primary mx-1'
+      
       >
         + 1
-      </button>
+      </Button>
 
-      <button 
+      <Button 
       onClick={() => {
         onAdd(count);
       }}
-      className='btn btn-danger mx-2'
+      
       >
         agregar al carrito
-      </button>
+      </Button>
 
-      <button 
+      <Button 
       onClick={ () => decrementar()}
-      className='btn btn-secondary mx-2'
+
       >
         - 1
-      </button>
+      </Button>
     </div>
   );
 }

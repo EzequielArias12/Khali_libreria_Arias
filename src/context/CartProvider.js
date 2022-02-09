@@ -56,6 +56,8 @@ export function CartContextProvider({ children }) {
     }
   };
 
+  
+
   const clear = () => {
     setCart([]);
   };
