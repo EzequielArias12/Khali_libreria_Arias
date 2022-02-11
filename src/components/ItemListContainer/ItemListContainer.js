@@ -2,40 +2,39 @@
 import React,{useState,useEffect} from 'react';
 import './ItemListContainer.css';
 import { ItemList } from "../ItemList/ItemList";
-import Productos from '../../Productos.json';
 import { useParams } from "react-router";
+import { getDocs, getFirestore } from "@firebase/firestore";
+import { collection, query, where } from "firebase/firestore";
 
-export const ItemListContainer = ({ title }) => {
+export const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
+  
   const { categoriaId } = useParams();
 
-  const getProductos = (data) =>
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (data) {
-          resolve(data);
-        } else {
-          reject("No se encontró ningun elemento");
-        }
-      }, 2000);
-    });
-
   useEffect(() => {
-    getProductos(Productos)
-      .then((result) => {
-        categoriaId
-          ? setProductos(
-              result.filter((producto) => producto.categoria === categoriaId)
-            )
-          : setProductos(Productos);
-      })
-      .catch((err) => console.log(err))
+    const db = getFirestore();
+    let q = query(collection(db, "Productos"));
+
+    if (!categoriaId) {
+      getDocs(q).then((snapshot) => {
+        setProductos(snapshot.docs.map((doc) => doc.data()));
+      });
+    } else {
+      const q = query(
+        collection(db, "Productos"),
+        where("category", "==", categoriaId)
+      );
+      getDocs(q).then((snapshot) => {
+        setProductos(snapshot.docs.map((doc) => doc.data()));
+      });
+    }
   }, [categoriaId]);
 
   return (
     <div className="itemListContainer">
       <div className="listaProductos">
-        <ItemList items={productos} />
+        <ItemList items={productos} />{console.log(productos)}
+
       </div>
     </div>
   );

@@ -22,11 +22,11 @@ const Navbar = () => {
         
         <nav className="navbar-bottom">
             <ul className="nav-links">
-                <li><Link className='LinkA' to='/categoria/Fibrones'>Fibrones</Link></li>
-                <li><Link className='LinkA' to='/categoria/gomasDeBorrar'>Gomas</Link></li>
+                <li><Link className='LinkA' to='/category/fibrones'>Fibrones</Link></li>
+                <li><Link className='LinkA' to='/category/gomasDeBorrar'>Gomas</Link></li>
                 <li><Link className='LinkA' to='/'>Catalogo</Link></li>
-                <li><Link className='LinkA' to='/categoria/Lapiceria'>Lapiceria</Link></li>
-                <li><Link className='LinkA' to='/categoria/Kits'>Kits</Link></li>
+                <li><Link className='LinkA' to='/category/Lapiceria'>Lapiceria</Link></li>
+                <li><Link className='LinkA' to='/category/Kits'>Kits</Link></li>
             </ul>
         </nav>
 
