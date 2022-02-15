@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartProvider";
 import { CartItem } from "../CartItem/CartItem";
+import { Form } from "../Form/Form";
 
 export function Cart() {
   const { cart, clear, removeItem, removeProduct } = useCartContext();
@@ -17,7 +18,7 @@ export function Cart() {
 
   return (
     <div className="cart">
-    <h1 className="titulo">Productos en carrito</h1>
+    <h1 className="titulo">Carrito de compras</h1>
     <div className="productos-en-carrito">
       {cart.length ? (
         cart.map((inCart) => (
@@ -30,26 +31,28 @@ export function Cart() {
           />
         ))
       ) : (
-        <div>
+        <div className="empty-cart">
           <h2>Tu carrito está vacío 😕</h2>
           <p>¡Te esperamos nuevamente por nuestra seccion de compras! 🚀</p>
         </div>
       )}
     </div>
-    <div>
-      <p className="total-a-pagar">Total a pagar: ${totalAPagar}</p>
-      <Button>Finalizar compra</Button>
-    </div>
-
+   
     {cart.length ? (
+      <div>
       <Button className="btn-clear" onClick={clear}>
-        Vaciar carrito
-      </Button>
+          Vaciar carrito
+        </Button>
+        <p className="total-a-pagar">Total a pagar: ${totalAPagar}</p>
+        <Form total= {totalAPagar}/>
+      </div>
+
     ) : (
       <Link to="/">
-        <Button>Volver a seccion de compra</Button>
+        <Button className="btn-volver-shop">Volver a seccion de compra</Button>
       </Link>
     )}
+    
   </div>
   );
 }
