@@ -12,19 +12,18 @@ export function CartContextProvider({ children }) {
     //agregar cantidad en producto
     const itemQuantity = { ...item, cantidad: quantity };
 
-    //corroborar con some si el producto se encuentra en cart
+    //corroborar con some si el producto se encuentra en cart --
     const isInCart = cart.some((p) => p.id === item.id);
     if (!isInCart) {
       //se agrega el producto completo
       setCart([...cart, itemQuantity]);
-      console.log(cart);
     } else {
       //si encuentra el producto, se suma la cantidad
       const addQuantity = cart.find((prod) => prod.id === item.id);
       //guardo el prod para poder acceder a cantidad y sumar
 
       addQuantity.cantidad = addQuantity.cantidad + quantity;
-      console.log(addQuantity, "este es quantity");
+
       setCart([...cart]);
     }
   };
@@ -42,28 +41,28 @@ export function CartContextProvider({ children }) {
       console.log(nuevoItem);
 
       setCart([...cart]);
-      console.log("entro por el if");
-
-    } else {
-      const eliminarProducto = cart.find(
-        (p) => p.id === item.id && p.cantidad === 1
-      );
-      console.log(eliminarProducto, "este es refresh cart por else");
-      const index = cart.indexOf(eliminarProducto);
-      cart.splice(index, 1);
-
-      setCart([...cart]);
     }
   };
 
-  
+  const removeProduct = (item) => {
+    const eliminarProducto = cart.find(
+      (p) => p.id === item.id && p.cantidad === 1
+    );
+
+    const index = cart.indexOf(eliminarProducto);
+    cart.splice(index, 1);
+
+    setCart([...cart]);
+  };
 
   const clear = () => {
     setCart([]);
   };
 
   return (
-    <CartContext.Provider value={{ cart, addItem, removeItem, clear }}>
+    <CartContext.Provider
+      value={{ cart, setCart, addItem, removeItem, removeProduct, clear }}
+    >
       {children}
     </CartContext.Provider>
   );

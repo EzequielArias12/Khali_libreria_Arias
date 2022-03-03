@@ -6,14 +6,12 @@ import {Link} from 'react-router-dom';
 
    const CartWidget = (props) => {
     const { cart } = useCartContext();
-    console.log("carrito", cart);
   
     const totalProductos = cart.reduce(
       (counter, item) => counter + item.cantidad,
       0
     );
 
-    console.log(totalProductos, "total productos");
     return (
       <div className="cart-container">
         {cart.length ? (

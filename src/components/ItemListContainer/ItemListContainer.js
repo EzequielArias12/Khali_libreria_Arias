@@ -9,31 +9,42 @@ import { collection, query, where } from "firebase/firestore";
 export const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
   
-  const { categoriaId } = useParams();
-
-  useEffect(() => {
+  const { categoryId } = useParams();
+  
+useEffect(() => {
     const db = getFirestore();
-    let q = query(collection(db, "Productos"));
-
-    if (!categoriaId) {
-      getDocs(q).then((snapshot) => {
-        setProductos(snapshot.docs.map((doc) => doc.data()));
+    let q = query(collection(db, "item"));
+//snapshot.docs.map((doc) => doc.data())
+    if (!categoryId) {
+      getDocs(q).then((querySnapshot) => {
+        setProductos(querySnapshot.docs.map((doc) => {
+          return {
+            id :
+            doc.id,...doc.data()
+          };
+        }));
       });
     } else {
       const q = query(
-        collection(db, "Productos"),
-        where("category", "==", categoriaId)
-      );
-      getDocs(q).then((snapshot) => {
-        setProductos(snapshot.docs.map((doc) => doc.data()));
+        collection(db, "item"),
+        where("category", "==", categoryId)
+      ); 
+
+      getDocs(q).then((querySnapshot) => {
+        setProductos(querySnapshot.docs.map((doc) => {
+          return {
+            id :
+            doc.id,...doc.data()
+          };
+        }));
       });
     }
-  }, [categoriaId]);
+  }, [categoryId]);
 
   return (
     <div className="itemListContainer">
       <div className="listaProductos">
-        <ItemList items={productos} />{console.log(productos)}
+        <ItemList items={productos} />
 
       </div>
     </div>

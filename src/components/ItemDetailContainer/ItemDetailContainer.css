@@ -1,4 +1,21 @@
 .itemDetailContainer {
-    padding: 2rem;
-    height: 100vh;
+  padding: 2rem;
+  background-repeat: repeat;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.item-detail-carga {
+  margin-bottom: 6rem;
+}
+
+.img-detail-carga {
+  width: 25rem;
+}
+
+@media only screen and (max-width: 480px) {
+  html {
+    font-size: 67%;
   }
+}

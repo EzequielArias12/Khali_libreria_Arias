@@ -6,12 +6,13 @@ import { useCartContext } from "../../context/CartProvider";
 
 export function ItemDetail({ item }) {
 
-  const { addItem } = useCartContext();
+  const { addItem, cart } = useCartContext();
 
   const [cartButton, setCartButton] = useState(true);
 
-  const [quantityToAdd, setQuantity] = useState(null);
+  const [quantity, setQuantity] = useState(null);
 
+  
   const onAdd = (quantity) => {
     if (quantity >= 1) {
       setQuantity(quantity);
@@ -20,26 +21,40 @@ export function ItemDetail({ item }) {
     }
   };
 
+  const isInCart = cart.find(p => p.id === item.id);
+  const update= ()=> {
+    if(isInCart){
+    const updateStock = isInCart.stock - isInCart.cantidad 
+    //muestra la cantidad de stock restante si se confirma la compra
+    return updateStock;
+    }
+    
+  }
+
 
   return (
     <>
-    <div className="card" >
-  <img src={item.img} className="card-img-top" alt="..."/>
-  <div className="card-body">
-    <h5 className="card-title">{item.name}</h5>
-    <p className="card-text">{item.descripcion}</p>
-    <p>${item.precio}</p>
-    <p>(Stock:{item.stock})</p>
-    {cartButton ? (
-          <ItemCount inStock={item.stock} onAdd={onAdd} />
+    <div className="item-detail">
+      <div className="item-detail-img">
+        <img className="detail-img" src={item.img} alt={item.name} />
+      </div>
+      <div className="detalle">
+        <h1>{item.name}</h1>
+        <p className="descripcion">{item.descripcion}</p>
+        <p>${item.precio}</p>
+        {isInCart ? (<p>(Stock:{update()})</p>) 
+        : (<p>(Stock:{item.stock})</p>)}
+        
+        {cartButton ? (
+          //muestra el stock disponible si se confirma la compra
+          <ItemCount inStock={item.stock} updateStock={update()} onAdd={onAdd} />
         ) : (
           <Link to="/cart">
-            <Button>Ver {quantityToAdd} productos en el carrito</Button>
+            <Button>Ver {quantity} productos en el carrito</Button>
           </Link>
         )}
-    
-  </div>
-</div>
+      </div>
+    </div>
     </>
   );
 }
