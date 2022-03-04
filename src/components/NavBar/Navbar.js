@@ -1,9 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React,{useState} from 'react';
 import CartWidget from '../CartWidget/index';
 import {Link} from 'react-router-dom';
 
 const Navbar = () => {
+
+    const [click, setClick] = useState(false)
+
+    const handleClick = () => setClick(!click);
     return (
         <header>
         <div className='navbar-top row'>
@@ -21,15 +25,57 @@ const Navbar = () => {
         </div>
         
         <nav className="navbar-bottom">
+
             <ul className="nav-links">
-                <li><Link className='LinkA' to='/category/fibrones'>Fibrones</Link></li>
-                <li><Link className='LinkA' to='/category/gomasDeBorrar'>Gomas</Link></li>
-                <li><Link className='LinkA' to='/'>Catalogo</Link></li>
-                <li><Link className='LinkA' to='/category/Lapiceria'>Lapiceria</Link></li>
-                <li><Link className='LinkA' to='/category/Kits'>Kits</Link></li>
+
+                <li>
+                    <Link 
+                    className='LinkA'
+                     to='/category/fibrones'
+                     >
+                         Fibrones
+                    </Link>
+                </li>
+
+                <li>
+                    <Link 
+                    className='LinkA' 
+                    to='/category/gomasDeBorrar'
+                    >
+                        Gomas
+                    </Link>
+                </li>
+
+                <li>
+                    <Link 
+                    className='LinkA' 
+                    to='/'
+                    >
+                        Catalogo
+                    </Link>
+                </li>
+
+                <li>
+                    <Link 
+                    className='LinkA' 
+                    to='/category/lapicera'
+                    >
+                        Lapicera
+                    </Link>
+                </li>
+                <li>
+                    <Link 
+                    className='LinkA'
+                    to='/category/kits'
+                    >
+                    Kits
+                    </Link>
+                </li>
             </ul>
         </nav>
-
+        <div className="nav-icon"onClick={handleClick}>
+            <i className={click ? "fas fa-times" : "fas fa-bars"} ></i>    
+        </div>
     </header>
     )
 }
