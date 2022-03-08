@@ -3,6 +3,7 @@ import {useState} from 'react';
 import { Link } from 'react-router-dom';
 import {Button} from 'react-bootstrap';
 import { useCartContext } from "../../context/CartProvider";
+import './ItemDetail.css'
 
 export function ItemDetail({ item }) {
 
@@ -34,16 +35,16 @@ export function ItemDetail({ item }) {
 
   return (
     <>
-    <div className="item-detail">
-      <div className="item-detail-img">
-        <img className="detail-img" src={item.img} alt={item.name} />
-      </div>
-      <div className="detalle">
-        <h1>{item.name}</h1>
-        <p className="descripcion">{item.descripcion}</p>
+    <div className="mainContainer">
+      <nav className="producPreview">
+      <img src={item.img} alt={item.name} />
+      </nav>
+      <div className="productData">
+        <h1 className="productTitle">{item.name}</h1>
+        <p className="description">{item.descripcion}</p>
         <p>${item.precio}</p>
-        {isInCart ? (<p>(Stock:{update()})</p>) 
-        : (<p>(Stock:{item.stock})</p>)}
+        {isInCart ? (<p>Stock:{update()}</p>)
+        : (<p>Stock:{item.stock}</p>)}
         
         {cartButton ? (
           //muestra el stock disponible si se confirma la compra
@@ -54,6 +55,7 @@ export function ItemDetail({ item }) {
           </Link>
         )}
       </div>
+   
     </div>
     </>
   );

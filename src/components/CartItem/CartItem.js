@@ -6,7 +6,7 @@ export const CartItem = ({ item, total, removeItem, removeProd }) => {
   // const { removeItem } = useCartContext;
 
   return (
-    <>
+    <> 
       <Card style={{ width: "14rem" }}>
         <Card.Img variant="top" src={item.img} />
         <Card.Body>

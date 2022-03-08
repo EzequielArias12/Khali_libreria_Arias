@@ -8,7 +8,6 @@ import { Form } from "../Form/Form";
 export function Cart() {
   const { cart, clear, removeItem, removeProduct } = useCartContext();
 
-  console.log(cart);
 
   const totalAPagar = cart.reduce(
     (counter, item) => counter + item.precio * item.cantidad,

@@ -22,15 +22,12 @@ export function ItemDetailContainer() {
   }, [itemId]);
 
   return (
-    <div className="itemDetailContainer">
+    <>
     {itemDetail ? (
         <ItemDetail item={itemDetail} />
-      ) : (
-        <div className="item-detail-carga">
-        <Loader type="ball-grid-pulse" />
-          <h2>¡Buenisima elección!</h2>
-        </div>
+      ) : (   
+        <Loader type="ball-grid-pulse"/>
       )}
-  </div>
+  </>
   );
 }

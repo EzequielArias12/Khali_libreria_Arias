@@ -1,17 +1,21 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React,{useState} from 'react';
 import CartWidget from '../CartWidget/index';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const Navbar = () => {
 
-    const [click, setClick] = useState(false)
+    const [show, setShow] = useState(false)
+    const [show2,setShow2] = useState(false);
 
-    const handleClick = () => setClick(!click);
+    const handleProduct = () => setShow(!show);
+    // eslint-disable-next-line no-unused-vars
+    const handleMenu = () => setShow2(!show2);
+
     return (
         <header>
         <div className='navbar-top row'>
-            <Link className='logo col-3' to="/">Khali<br/>Libreria</Link>
+            <NavLink className='logo col-3' to="/">Khali<br/>Libreria</NavLink>
 
             <form className="col-6">
                 <input className='input-search' type="text" placeholder="  ¿Que estas buscando?"/>
@@ -19,63 +23,71 @@ const Navbar = () => {
             
 
             <div className="nav-admin col-3">
-                <p>Iniciar sesion<br/>-------------------<br/> Crear cuenta</p>
+                <NavLink className="mobile-season" to="/">Iniciar sesion<br/>-------------------<br/> Crear cuenta</NavLink>
                 <CartWidget/>
             </div>
         </div>
         
         <nav className="navbar-bottom">
 
-            <ul className="nav-links">
+            <ul className={show ? "nav-links active" : "nav-links"}>
 
                 <li>
-                    <Link 
+                    <NavLink 
+                    activeClassName = "active"
                     className='LinkA'
                      to='/category/fibrones'
                      >
                          Fibrones
-                    </Link>
+                    </NavLink>
                 </li>
 
                 <li>
-                    <Link 
+                    <NavLink 
+                    activeClassName = "active"
                     className='LinkA' 
                     to='/category/gomasDeBorrar'
                     >
                         Gomas
-                    </Link>
+                    </NavLink>
                 </li>
 
                 <li>
-                    <Link 
+                    <NavLink 
+                    activeClassName = "active"
                     className='LinkA' 
                     to='/'
                     >
                         Catalogo
-                    </Link>
+                    </NavLink>
                 </li>
 
                 <li>
-                    <Link 
+                    <NavLink 
+                    activeClassName = "active"
                     className='LinkA' 
                     to='/category/lapicera'
                     >
                         Lapicera
-                    </Link>
+                    </NavLink>
                 </li>
                 <li>
-                    <Link 
+                    <NavLink 
+                    activeClassName = "active"
                     className='LinkA'
                     to='/category/kits'
                     >
                     Kits
-                    </Link>
+                    </NavLink>
                 </li>
             </ul>
-        </nav>
-        <div className="nav-icon"onClick={handleClick}>
-            <i className={click ? "fas fa-times" : "fas fa-bars"} ></i>    
+
+            <div className="nav-icon" >
+            <span className="nav-text" onClick={handleProduct} > Productos</span>   
+            <span className="nav-text">Menu</span>  
         </div>
+        </nav> 
+        
     </header>
     )
 }

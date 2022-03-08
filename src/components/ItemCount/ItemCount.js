@@ -1,19 +1,20 @@
 import { useState} from 'react';
-import { Button } from 'react-bootstrap';
+import swal from "sweetalert"
 
+import './ItemCount.css';
 
 function ItemCount({inStock,onAdd}) {
 
   const [stock, setStock] = useState(inStock);
 
-    const [count, setCount] = useState(1);
+    const [count, setCount] = useState(0);
    
     const incrementar = (factor = 1) => {
-        if(stock > 0){
-             setCount(count + factor);
-             setStock(stock - factor);
+        if(stock === 0){
+               swal("Ya no hay stock");
         }else{
-            setStock(0);
+            setCount(count + factor);
+             setStock(stock - factor);
         }
     };  
 
@@ -28,33 +29,38 @@ function ItemCount({inStock,onAdd}) {
         
 
   return (
-    
-    <div >
-      <h4>Count{count}</h4>
-
-      <Button 
+    <>
+    <div className="mobile-css">
+    <div  className='button-container'>
+      <button 
       onClick={ () => incrementar()}
       
       >
         + 1
-      </Button>
+      </button>
 
-      <Button 
-      onClick={() => {
-        onAdd(count);
-      }}
-      
-      >
-        agregar al carrito
-      </Button>
+      <h4>{count}</h4>
 
-      <Button 
+      <button 
       onClick={ () => decrementar()}
 
       >
         - 1
-      </Button>
+      </button>
+
     </div>
+       
+      <button 
+      className="btn-primary btn-add" 
+      onClick={() => {
+        onAdd(count);
+      }}
+      >
+        Agregar al carrito
+      </button> 
+    </div>
+    
+    </>
   );
 }
 

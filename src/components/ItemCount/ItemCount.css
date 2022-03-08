@@ -1,0 +1,28 @@
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+.button-container button,
+.button-container h4{
+    border: 1px solid gray;
+    padding: 10px 10px 10px 10px;
+    margin-bottom:0;
+}
+
+.button-container button:focus:hover{
+  color: grey;
+}
+
+.btn-add{
+    margin-top: 30px;
+    padding: 8px 8px 8px 8px;
+    background-color: black;
+    border-color:black;
+    color: white;
+}
+
+
+

@@ -10,11 +10,11 @@ export const Item = ({ item }) => {
         <Card.Img variant="top" src={item.img} />
       </Link>
       <Card.Body>
-        <Card.Title>{item.name}</Card.Title>
-        <p>${item.precio}</p>
+        <Card.Title className="name">{item.name}</Card.Title>
+        <p className="price">${item.precio}</p>
 
         <Link to={`/item/${item.id}`}>
-          <Button variant="primary">Ver producto</Button>
+          <Button variant="primary" className="btn-show">Ver producto</Button>
         </Link>
       </Card.Body>
     </Card>

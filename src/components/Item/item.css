@@ -1,3 +1,18 @@
 .card {
     margin: 2rem;
+    box-shadow: -4px 4px 4px rgba(0,0,0,0.3);
+    border-radius: 10px 10px 10px 10px;
   }
+
+.btn-show {
+  background-color: black;
+  border-color:black;
+}
+ 
+.price {
+  color :black;
+}
+
+.name {
+  color:black;
+}

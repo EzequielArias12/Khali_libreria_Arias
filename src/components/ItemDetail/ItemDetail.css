@@ -1,3 +1,61 @@
-.card {
-  width : 18rem;
+.mainContainer {
+  padding: 4% 12%;
+  margin-top: 32px;
+  box-sizing:border-box;
+  width:100%;
+  display: flex;
+  align-items: center;
+}
+
+.producPreview {
+  width: 60% !important;
+}
+
+.producPreview img {
+  width: 100% !important;
+  box-shadow: -4px 4px 4px rgba(0,0,0,0.3);
+}
+  
+.productTitle{
+  font-size: 48px;
+  font-weight: 600;
+  font-family: "Montserrat", Sans-serif;
+  color: black;
+}
+
+.description {
+  font-size:20px;
+  color: rgba(0, 0, 0, 0.8);
+
+}
+
+.productData {
+  width:50%;
+  text-align: center;
+}
+
+@media screen and (max-width:769px) {
+  .productData{
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width:426px){
+  .mainContainer{
+    flex-direction: column;
+    width: 100%;
+    padding:0;
+  }
+  .mainContainer p {
+    font-size: 20px;
+  }
+
+  .productTitle{
+    width:100%;
+    margin-top:10px;
+    font-size: 20px;
+  }
+  .description{
+    font-size: 15px;
+  }
 }
